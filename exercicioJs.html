@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <h2 class="text-center">Exercicio 1</h2>
+                <h4 class="text-center">Demonstrado no alerta</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <h2 class="text-center">Exercicio 2</h2>
+                <h4 class="text-center">Demonstrado no alerta</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <h2 class="text-center">Exercicio 3</h2>
+                <h4 class="text-center">Tabuada do 5</h4>
+                <h4 class="text-center" id="tabuada"></h4>
+
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <h2 class="text-center">Exercicio 4</h2>
+                <h4 class="text-center">Tabuada </h4>
+                <div class="form-group">
+                    <label for="resultado">Digite o valor</label>
+                    <input type="number" class="form-control" id="valorEx4">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" onclick="(tabuadinha())">Calcular</button>
+                <h4 class="text-center" id="tabuada2"></h4>
+
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class=" col-md-4">
+                <h2 class="text-center">Exercicio 5</h2>
+            </div>
+            <div class="form-group">
+                <label for="valor1">Valor 1:</label>
+                <input type="number" class="form-control" id="valor1">
+            </div>
+            <div class="form-group">
+                <label for="valor2">Valor 2:</label>
+                <input type="number" class="form-control" id="valor2">
+            </div>
+            <div class="form-group">
+                <label for="operacao">Operação:</label>
+                <select class="form-control" id="operacao">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="calcular()">Calcular</button>
+            <div class="mt-3">
+                <label for="resultado">Resultado:</label>
+                <input type="text" class="form-control" id="resultado" disabled>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <h2 class="text-center">Exercicio 6 </h2>
+                <h3 class="text-center" id="numerosEx6"> </h3>
+                <h3 class="text-center" id="resultadosEx6"></h3>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="form-group">
+                <label for="custoFabrica">Custo de Fábrica:</label>
+                <input type="number" class="form-control" id="custoFabrica">
+            </div>
+            <div class="form-group">
+                <label for="percDistribuidor">% Distribuidor:</label>
+                <input type="number" class="form-control" id="percDistribuidor">
+            </div>
+            <div class="form-group">
+                <label for="percImpostos">% Impostos:</label>
+                <input type="number" class="form-control" id="percImpostos">
+            </div>
+            <button class="btn btn-primary" onclick="calcularCustoFinal()">Calcular</button>
+            <div class="mt-3">
+                <label for="valorfinal">Valor Final:</label>
+                <input type="text" class="form-control" id="valorfinal" disabled>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+
+        //exercicio 1 
+        let n1 = 10;
+        let n2 = 100;
+        let soma = n2 + n1;
+        let sub = n2 - n1;
+        let divisao = n2 / n1;
+        let multi = n2 * n1;
+
+        alert('A soma dos valores é ' + soma + '\n'
+            + 'a subtração dos valores é ' + sub + '\n'
+            + 'a divisão dos valores é ' + divisao + '\n'
+            + 'a multiplicação dos valores é ' + multi);
+
+        //exercicio 2
+        let frase = '';
+        alert('valores n1 = 10 n2 = 100')
+        for (n1 = 10; n1 <= n2; n1++) {
+            frase += n1 + ' ';
+        }
+        alert(frase);
+
+        //exercicio 3 
+        let valor = 5;
+        let tabuada = '';
+        let res = 0;
+        for (let i = 1; i <= 10; i++) {
+            res = valor * i;
+            tabuada += valor + ' x ' + i + ' = ' + res + '<br>';
+            res = 0;
+        }
+        document.getElementById('tabuada').innerHTML = tabuada;
+
+        //Exercicio 4
+        function tabuadinha() {
+            valorEx4 = document.getElementById('valorEx4').value;
+            let tabuada2 = '';
+            let res2 = 0;
+            for (let i = 1; i <= 10; i++) {
+                res2 = valorEx4 * i;
+                tabuada2 += valorEx4 + ' x ' + i + ' = ' + res2 + '<br>';
+                res2 = 0;
+            }
+            document.getElementById('tabuada2').innerHTML = tabuada2;
+        }
+
+        //Exercicio 5 
+        function calcular() {
+            var valor1 = parseFloat(document.getElementById('valor1').value);
+            var valor2 = parseFloat(document.getElementById('valor2').value);
+            var operacao = document.getElementById('operacao').value;
+            var resultado;
+
+            switch (operacao) {
+                case '+':
+                    resultado = valor1 + valor2;
+                    break;
+                case '-':
+                    resultado = valor1 - valor2;
+                    break;
+                case '*':
+                    resultado = valor1 * valor2;
+                    break;
+                case '/':
+                    resultado = valor1 / valor2;
+                    break;
+                default:
+                    resultado = "Operação inválida";
+            }
+
+            document.getElementById('resultado').value = resultado;
+        }
+        //Exercicio 6
+
+        // Exibir valores pares
+        var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var valoresPares = numeros.filter(function (numero) {
+            return numero % 2 === 0;
+        });
+        document.getElementById('numerosEx6').innerHTML = 'Numeros - ' + numeros;
+        document.getElementById('resultadosEx6').innerHTML = 'Valores Pares ' + valoresPares;
+
+        //Exercicio 7
+        function calcularCustoFinal() {
+            var custoFabrica = parseFloat(document.getElementById('custoFabrica').value);
+            var percDistribuidor = parseFloat(document.getElementById('percDistribuidor').value);
+            var percImpostos = parseFloat(document.getElementById('percImpostos').value);
+
+            var custoFinal = custoFabrica + (custoFabrica * percDistribuidor / 100) + (custoFabrica * percImpostos / 100);
+
+            document.getElementById('valorfinal').value = custoFinal.toFixed(2);
+        }
+
+    </script>
+</body>
+
+</html>
